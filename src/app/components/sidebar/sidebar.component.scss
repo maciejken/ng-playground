@@ -1,0 +1,91 @@
+.sidebar-fixed {
+    position: fixed;
+}
+
+.sidebar-relative {
+    position: relative;
+    height: 100%;
+    z-index: 0;
+}
+
+.menu {
+    position: absolute;
+    height: 100vh;
+    background-color: #555;
+}
+
+.menu-level-1 {
+    width: 50px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 5px;
+}
+
+.menu-level-2 {
+    width: 250px;
+    left: -200px;
+    transition: .15s;
+    z-index: 0;
+}
+
+.sidebar-fixed:hover .menu-level-2 {
+    left: 50px;
+}
+
+.menu-level-1-mask {
+    position: absolute;
+    z-index: 1;
+    width: 5px;
+    height: 100%;
+    background-color: #555;
+}
+
+.menu-level-1-item {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 7px;
+    box-shadow: 0 0 0 5px #555;
+    color: #fff;
+    background-color: green;
+    font-size: 24px;
+    line-height: 24px;
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+    padding: 5px 0;
+    margin: 10px 5px;
+    white-space: nowrap;
+    transition: .15s;
+    overflow: hidden;
+}
+
+.first-letter {
+    position: absolute;
+    z-index: 1;
+    padding-left: 10px;
+    background-color: green;
+}
+
+.more-letters {
+    position: absolute;
+    right: 5px;
+    opacity: 0;
+    transition: opacity .15s .1s, right .15s;
+}
+
+.menu-level-1-item:hover .more-letters {
+    opacity: 1;
+}
+
+@for $i from 3 to 20 {
+    .width-#{$i}:hover {
+        width: ($i + 1) * 15px;
+
+        .more-letters {
+            right: (2.75 - $i) * 15px;
+        }
+    }
+}
+  

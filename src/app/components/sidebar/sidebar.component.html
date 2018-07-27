@@ -1,0 +1,12 @@
+<div class="sidebar-fixed">
+  <div class="sidebar-relative">
+    <div class="menu menu-level-1">
+      <div class="menu-level-1-mask"></div>
+      <div class="menu-level-1-item width-{{item.name.length}}" *ngFor="let item of menu.level1">
+        <span class="first-letter">{{item.name.slice(0,1)}}</span>
+        <span class="more-letters">{{item.name.slice(1)}}</span>
+      </div>
+    </div>
+    <div class="menu menu-level-2"></div>
+  </div>
+</div>
