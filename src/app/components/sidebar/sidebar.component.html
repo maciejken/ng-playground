@@ -1,12 +1,29 @@
-<div class="sidebar-fixed">
+<div class="sidebar-fixed" (mouseleave)="resetFilter()">
   <div class="sidebar-relative">
-    <div class="menu menu-level-1">
+    <ul class="menu menu-level-1">
       <div class="menu-level-1-mask"></div>
-      <div class="menu-level-1-item width-{{item.name.length}}" *ngFor="let item of menu.level1">
+      <li class="menu-level-1-item width-{{countWidth(item.name)}}"
+        *ngFor="let item of menu.level1; let i = index"
+        (mouseenter)="filterLevel2(i)">
         <span class="first-letter">{{item.name.slice(0,1)}}</span>
         <span class="more-letters">{{item.name.slice(1)}}</span>
-      </div>
+      </li>
+    </ul>
+    <div class="menu-level-2-wrapper invisible-scrollbar">
+      <ul class="menu menu-level-2">
+        <li class="menu-level-2-item height-{{item2.level3.length}}" *ngFor="let item2 of level2">{{item2.name}}
+          <ul class="menu menu-level-3">
+            <li class="menu-item menu-level-3-item"
+              *ngFor="let item3 of item2.level3">{{item3.name}}
+              <ul class="menu menu-level-4" *ngIf="item3.level4">
+                <li class="menu-item menu-level-4-item"
+                  *ngFor="let item4 of item3.level4">{{item4.name}}</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
-    <div class="menu menu-level-2"></div>
+
   </div>
 </div>
