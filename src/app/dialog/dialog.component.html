@@ -1,0 +1,15 @@
+<form [formGroup]="form">
+  <h2 mat-dialog-title>Formularz</h2>
+
+  <mat-dialog-content>
+    <div *ngFor="let field of fields; let i = index">
+      <app-form-field [form]="form" [field]="field" [index]="i"></app-form-field>
+    </div>    
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button #submitBtn mat-button type="submit"
+      (click)="addField()">Dodaj</button>
+    <button #submitBtn mat-button type="submit" mat-dialog-close
+      [disabled]="form.invalid" (click)="onSubmit()">Wyślij</button>
+  </mat-dialog-actions>
+</form>
