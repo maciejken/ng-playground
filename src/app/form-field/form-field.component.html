@@ -1,9 +1,11 @@
 <div [formGroup]="form">
 
-  <div [ngSwitch]="field.controlType">
+  <div [ngSwitch]="field.controlType" class="field-control">
     <mat-form-field *ngSwitchCase="'text'" appearance="outline">
       <mat-label>{{field.label}}</mat-label>
+      <mat-icon matSuffix>info</mat-icon>
       <input matInput
+        class="input"
         [formControlName]="field.key + index"
         [id]="field.key + index" [type]="field.type"
         [value]="field.value">     
