@@ -1,3 +1,6 @@
 .form {
-  width: 300px;
+  width: 600px;
+}
+::ng-deep .mat-form-field-wrapper {
+  width: 140px;
 }

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from './dialog/dialog.component';
-import { FieldService } from './field.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
 
-  fieldData$: Observable<string>;
-
   constructor(
     public dialog: MatDialog,
-    private fs: FieldService
     ) {
-      this.fieldData$ = this.fs.fieldData$;
     }
 
   openDialog() {
