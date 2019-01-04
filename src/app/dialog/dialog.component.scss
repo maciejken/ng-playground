@@ -2,12 +2,8 @@
   &__field {
     margin: 10px;
 
-    &--name, &--price, &--color {
-      width: 100px;
-    }
-
-    &--description {
-      width: 300px;
+    &--name {
+      width: 200px;
     }
   }
 }
