@@ -59,4 +59,8 @@ export class TodoListComponent implements OnInit {
     });
   }
 
+  getDoneCount() {
+    return this.todoList.filter(todo => todo.done).length;
+  }
+
 }
