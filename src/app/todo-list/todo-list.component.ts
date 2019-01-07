@@ -6,6 +6,12 @@ import { Todo } from '../models';
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
 
+import * as moment from 'moment';
+import {extendMoment} from 'moment-range';
+
+const Moment = extendMoment(moment);
+
+
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -23,6 +29,12 @@ export class TodoListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const m1 = moment('2017-10-01');
+    const m2 = moment('2019-01-01');
+    const range = Moment.range(m1, m2);
+    const quarters = Array.from(range.by('quarter'));
+    quarters.map(q => { console.log('Q' + q.format('Q YYYY')); });
+
     this.todoList$.subscribe(data => {
       this.todoList = data;
     });
